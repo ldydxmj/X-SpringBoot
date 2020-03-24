@@ -4,4 +4,4 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: PP55PP55
-    url: jdbc:mysql://192.168.0.201:3306/x_springboot?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true
+    url: jdbc:mysql://47.113.82.122:3306/x_springboot?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true

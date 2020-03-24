@@ -18,7 +18,7 @@ var url = function(name) {
 T.p = url;
 
 //请求前缀
-var baseURL = "http://localhost/";
+var baseURL = "http://www4.feiqi.com/";
 
 //登录token
 var token = localStorage.getItem("token");
