@@ -4,20 +4,9 @@ $(function () {
         datatype: "json",
         colModel: [			
 			{ label: 'id', name: 'id', index: 'id', width: 50, key: true },
-			{ label: '更新内容', name: 'updateContent', index: 'update_content', width: 80 }, 			
-			{ label: '版本码', name: 'versionCode', index: 'version_code', width: 80 }, 			
-			{ label: '版本号', name: 'versionName', index: 'version_name', width: 80 }, 			
-			{ label: '包名', name: 'packageName', index: 'package_name', width: 80 },
-			{ label: '下载地址', name: 'downloadUrl', index: 'download_url', width: 80 },
-			{ label: '文件名', name: 'appName', index: 'app_name', width: 80 }, 			
-			{ label: 'MD5值', name: 'md5Value', index: 'md5_value', width: 80 }, 			
-			{ label: '文件大小', name: 'fileSize', index: 'file_size', width: 80 }, 			
-			{ label: '创建时间', name: 'createTime', index: 'create_time', width: 80 }, 			
-			{ label: '修改时间', name: 'updateTime', index: 'update_time', width: 80 }, 			
-			{ label: '上传人', name: 'userId', index: 'user_id', width: 80 }, 			
-			{ label: '是否强制安装', name: 'isForce', index: 'is_force', width: 80 }, 			
-			{ label: '是否可忽略该版本', name: 'isIgnorable', index: 'is_ignorable', width: 80 }, 			
-			{ label: '是否静默下载', name: 'isSilent', index: 'is_silent', width: 80 }			
+			{ label: '名字', name: 'name', index: 'update_content', width: 80 },
+			{ label: '标题', name: 'title', index: 'title', width: 80 },
+			{ label: '价格', name: 'price', index: 'price', width: 80 }
         ],
 		viewrecords: true,
         height: 385,
@@ -63,7 +52,7 @@ $(function () {
         onComplete : function(file, r){
             if(r.code == 0){
             	console.log(r);
-                vm.apkVersion = r.apkVersion;
+                vm.yewu = r.yewu;
                 vm.add();
             }else{
                 alert(r.msg);
@@ -78,7 +67,7 @@ var vm = new Vue({
 	data:{
 		showList: true,
 		title: null,
-		apkVersion: {},
+		yewu: {},
         config: {}
 	},
     created: function(){
@@ -108,12 +97,12 @@ var vm = new Vue({
             vm.getInfo(id)
 		},
 		saveOrUpdate: function (event) {
-			var url = vm.apkVersion.id == null ? "apkversion/apkversion/save" : "apkversion/apkversion/update";
+			var url = vm.yewu.id == null ? "yewu/yewu/save" : "yewu/yewu/update";
 			$.ajax({
 				type: "POST",
 			    url: baseURL + url,
                 contentType: "application/json",
-			    data: JSON.stringify(vm.apkVersion),
+			    data: JSON.stringify(vm.yewu),
 			    success: function(r){
 			    	if(r.code === 0){
 						alert('操作成功', function(index){
@@ -134,7 +123,7 @@ var vm = new Vue({
 			confirm('确定要删除选中的记录？', function(){
 				$.ajax({
 					type: "POST",
-				    url: baseURL + "apkversion/apkversion/delete",
+				    url: baseURL + "yewu/yewu/delete",
                     contentType: "application/json",
 				    data: JSON.stringify(ids),
 				    success: function(r){
@@ -150,8 +139,8 @@ var vm = new Vue({
 			});
 		},
 		getInfo: function(id){
-			$.get(baseURL + "apkversion/apkversion/info/"+id, function(r){
-                vm.apkVersion = r.apkVersion;
+			$.get(baseURL + "yewu/yewu/info/"+id, function(r){
+                vm.yewu = r.yewu;
             });
 		},
 		reload: function (event) {

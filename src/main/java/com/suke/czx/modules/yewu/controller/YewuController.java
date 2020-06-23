@@ -33,7 +33,7 @@ public class YewuController extends AbstractController {
      * 列表
      */
     @RequestMapping("/list")
-    @PreAuthorize("hasRole('yewu:yewu:list')")
+//    @PreAuthorize("hasRole('yewu:yewu:list')")
     public R list(@RequestParam Map<String, Object> params){
         //查询列表数据
         QueryWrapper<Yewu> queryWrapper = new QueryWrapper<>();
@@ -46,7 +46,7 @@ public class YewuController extends AbstractController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    @PreAuthorize("hasRole('yewu:yewu:info')")
+//    @PreAuthorize("hasRole('yewu:yewu:info')")
     public R info(@PathVariable("id") Long id){
         return R.ok().put("yewu", yewuService.getById(id));
     }
@@ -57,9 +57,9 @@ public class YewuController extends AbstractController {
      */
     @SysLog("新增业务数据")
     @RequestMapping("/save")
-    @PreAuthorize("hasRole('yewu:yewu:save')")
+//    @PreAuthorize("hasRole('yewu:yewu:save')")
     public R save(@RequestBody Yewu yewu){
-        yewu.setUserId(getUserId());
+
         yewuService.save(yewu);
         return R.ok();
     }
@@ -70,9 +70,9 @@ public class YewuController extends AbstractController {
      */
     @SysLog("修改yewu数据")
     @RequestMapping("/update")
-    @PreAuthorize("hasRole('yewu:yewu:update')")
+//    @PreAuthorize("hasRole('yewu:yewu:update')")
     public R update(@RequestBody Yewu yewu){
-        yewu.setUpdateTime(new Date());
+
 		yewuService.updateById(yewu);
         return R.ok();
     }
@@ -83,7 +83,7 @@ public class YewuController extends AbstractController {
      */
     @SysLog("删除业务数据")
     @RequestMapping("/delete")
-    @PreAuthorize("hasRole('yewu:yewu:delete')")
+//    @PreAuthorize("hasRole('yewu:yewu:delete')")
     public R delete(@RequestBody Long[] ids){
 		yewuService.removeByIds(Arrays.asList(ids));
         return R.ok();

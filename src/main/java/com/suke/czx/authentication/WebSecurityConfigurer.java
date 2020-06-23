@@ -63,6 +63,13 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
         permitAll.add("/v2/**");
         permitAll.add(Constant.TOKEN_ENTRY_POINT_URL);
         String[] urls = permitAll.stream().distinct().toArray(String[]::new);
+
+        System.out.printf("1233333333333333\n");
+
+        for(String s: urls){
+            System.out.printf(s+"\n");
+        }
+        System.out.printf("1233333333333333\n");
         ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry registry = http.authorizeRequests();
         registry.antMatchers(urls).permitAll().anyRequest().authenticated().and().csrf().disable();
         http
