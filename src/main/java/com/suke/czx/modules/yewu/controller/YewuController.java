@@ -17,11 +17,7 @@ import java.util.Map;
 
 
 /**
- * APK版本管理
- * 
- * @author czx
- * @email object_czx@163.com
- * @date 2019-04-28 15:56:33
+ *
  */
 @RestController
 @AllArgsConstructor
@@ -72,7 +68,7 @@ public class YewuController extends AbstractController {
     @RequestMapping("/update")
 //    @PreAuthorize("hasRole('yewu:yewu:update')")
     public R update(@RequestBody Yewu yewu){
-
+        yewu.setUpdateTime(new Date());
 		yewuService.updateById(yewu);
         return R.ok();
     }

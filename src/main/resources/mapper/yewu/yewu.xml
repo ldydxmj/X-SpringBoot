@@ -9,7 +9,8 @@
         <result property="name" column="name"/>
         <result property="price" column="price"/>
         <result property="title" column="title"/>
-
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
     </resultMap>
 
 </mapper>

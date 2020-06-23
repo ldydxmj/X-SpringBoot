@@ -35,4 +35,8 @@ public class Yewu extends Model<Yewu> implements Serializable {
 		private String title;
 		//价格
 		private Double price;
+	//创建时间
+	private Date createTime;
+	//修改时间
+	private Date updateTime;
 }
